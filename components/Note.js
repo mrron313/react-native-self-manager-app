@@ -9,11 +9,12 @@ import {
   Keyboard,
   Platform,
   TouchableOpacity,
-  TouchableHighlight,
   FlatList,
-  Modal
+  Modal,
+  Button
 } from "react-native";
 import { Card } from 'react-native-elements'
+import { Icon } from 'react-native-elements'
 
 const isAndroid = Platform.OS == "android"
 const viewPadding = 10
@@ -107,6 +108,13 @@ export default class Note extends Component {
                 returnKeyLabel="done"
               />
           </View>
+          
+          <Button
+            style={styles.cancelButton}
+            title="Cancel"
+            onPress={ this.closeModal }
+          />
+
         </Modal>
 
         <FlatList
@@ -130,9 +138,7 @@ export default class Note extends Component {
           onPress={this.openModal}
           style={styles.TouchableOpacityStyle}>
           <Image
-            source={{
-              uri:'https://raw.githubusercontent.com/AboutReact/sampleresource/master/plus_icon.png',
-            }}
+            source={ require('../assets/plus_icon.png') }
             style={styles.FloatingButtonStyle}
           />
         </TouchableOpacity>
@@ -171,6 +177,10 @@ const styles = StyleSheet.create({
   list: {
     width: "100%"
   },
+  cancelButton:{
+    marginLeft: 10,
+    marginRight: 10
+  },
   textInput: {
     height: 40,
     paddingRight: 10,
@@ -193,8 +203,5 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     width: 50,
     height: 50,
-    //backgroundColor:'black'
   },
 });
-
-// AppRegistry.registerComponent("TodoList", () => TodoList);

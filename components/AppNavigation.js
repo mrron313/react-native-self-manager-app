@@ -2,8 +2,10 @@ import React from 'react';
 import { Text, View, StyleSheet, Image } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
+import { Icon } from 'react-native-elements'
 import Todo from './Todo'
 import Note from './Note'
+import Holiday from './Holiday'
 
 class TodoScreen extends React.Component {
   render() {
@@ -25,9 +27,20 @@ class NoteScreen extends React.Component {
   }
 }
 
+class HolidayScreen extends React.Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Holiday />
+      </View>
+    );
+  }
+}
+
 const TabNavigator = createBottomTabNavigator({
     Todo: TodoScreen,
     Note: NoteScreen,
+    Holiday: HolidayScreen
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
@@ -35,21 +48,31 @@ const TabNavigator = createBottomTabNavigator({
         const { routeName } = navigation.state;
         if (routeName === 'Todo') {
           return (
-            <Image
-              source={ require('../assets/home_icon.png') }
-              style={{ width: 20, height: 20, }} />
+            <Icon
+              type='font-awesome'
+              name='list'
+              size={16} />
           );
-        } else {
+        } else if(routeName === 'Note') {
           return (
-            <Image
-              source={ require('../assets/settings_icon.png') }
-              style={{ width: 20, height: 20 }} />
+            <Icon
+              type="font-awsome"
+              name='edit'
+              size={16} />
+          );
+        }
+        else{
+          return (
+            <Icon
+              type="font-awsome"
+              name='snooze'
+              size={16} />
           );
         }
       },
     }),
     tabBarOptions: {
-      activeTintColor: '#FF6F00',
+      activeTintColor: '#DF76A9',
       inactiveTintColor: '#263238',
     },
   }

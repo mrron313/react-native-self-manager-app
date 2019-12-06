@@ -1,0 +1,112 @@
+[ 
+    { 
+       "Day":"Thursday",
+       "Date":"Feb 21",
+       "Holiday_Name":"Language Martyrs' Day"
+    },
+    { 
+       "Day":"Sunday",
+       "Date":"Mar 17",
+       "Holiday_Name":"Sheikh Mujibur Rahman's birthday"
+    },
+    { 
+       "Day":"Tuesday",
+       "Date":"Mar 26",
+       "Holiday_Name":"Independence Day"
+    },
+    { 
+       "Day":"Sunday",
+       "Date":"Apr 14",
+       "Holiday_Name":"Bengali New Year"
+    },
+    { 
+       "Day":"Sunday",
+       "Date":"Apr 21",
+       "Holiday_Name":"Shab e-Barat"
+    },
+    { 
+       "Day":"Wednesday",
+       "Date":"May 01",
+       "Holiday_Name":"Labour Day"
+    },
+    { 
+       "Day":"Saturday",
+       "Date":"May 18",
+       "Holiday_Name":"Buddha Purnima"
+    },
+    { 
+       "Day":"Friday",
+       "Date":"May 31",
+       "Holiday_Name":"Jumatul Bidah"
+    },
+    { 
+       "Day":"Sunday",
+       "Date":"Jun 02",
+       "Holiday_Name":"Night of Destiny"
+    },
+    { 
+       "Day":"Tuesday",
+       "Date":"Jun 04",
+       "Holiday_Name":"Eid al-Fitr"
+    },
+    { 
+       "Day":"Wednesday",
+       "Date":"Jun 05",
+       "Holiday_Name":"Eid al-Fitr Holiday"
+    },
+    { 
+       "Day":"Thursday",
+       "Date":"Jun 06",
+       "Holiday_Name":"Eid al-Fitr Holiday"
+    },
+    { 
+       "Day":"Sunday",
+       "Date":"Aug 11",
+       "Holiday_Name":"Eid-ul-Azha"
+    },
+    { 
+       "Day":"Monday",
+       "Date":"Aug 12",
+       "Holiday_Name":"Eid-ul-Azha Holiday"
+    },
+    { 
+       "Day":"Tuesday",
+       "Date":"Aug 13",
+       "Holiday_Name":"Eid-ul-Azha Holiday"
+    },
+    { 
+       "Day":"Thursday",
+       "Date":"Aug 15",
+       "Holiday_Name":"National Mourning Day"
+    },
+    { 
+       "Day":"Friday",
+       "Date":"Aug 23",
+       "Holiday_Name":"Janmashtami"
+    },
+    { 
+       "Day":"Tuesday",
+       "Date":"Sep 10",
+       "Holiday_Name":"Ashura"
+    },
+    { 
+       "Day":"Tuesday",
+       "Date":"Oct 08",
+       "Holiday_Name":"Durga Puja"
+    },
+    { 
+       "Day":"Sunday",
+       "Date":"Nov 10",
+       "Holiday_Name":"Maulud Nabi"
+    },
+    { 
+       "Day":"Monday",
+       "Date":"Dec 16",
+       "Holiday_Name":"Victory Day"
+    },
+    { 
+       "Day":"Wednesday",
+       "Date":"Dec 25",
+       "Holiday_Name":"Christmas Day"
+    }
+ ]
