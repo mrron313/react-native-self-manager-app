@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "A simple todo app",
-    "slug": "ToDo",
+    "name": "My Manager",
+    "slug": "MyManager",
     "privacy": "public",
     "sdkVersion": "35.0.0",
     "platforms": [

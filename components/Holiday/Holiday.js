@@ -32,15 +32,15 @@ export default class Holiday extends Component {
     const state = this.state;
     return (
         <SafeAreaView style={styles.container}>
-            <ScrollView style={styles.scrollView}>  
-                <View style={styles.container}>
-                    <Text style={styles.holidy_header}>Bangladesh 2019 Holiday</Text>
-                    <Table borderStyle={{borderWidth: 2, borderColor: '#f5d6e6'}}>
-                        <Row data={state.tableHead} style={styles.head} textStyle={styles.text}/>
-                        <Rows data={state.tableData} textStyle={styles.text}/>
-                    </Table>
-                </View>
-            </ScrollView>
+          <ScrollView style={styles.scrollView}>  
+            <View style={styles.container}>
+                <Text style={styles.holidy_header}>Bangladesh 2019 Holiday</Text>
+                <Table borderStyle={{borderWidth: 2, borderColor: '#f5d6e6'}}>
+                    <Row data={state.tableHead} style={styles.head} textStyle={styles.text}/>
+                    <Rows data={state.tableData} textStyle={styles.text}/>
+                </Table>
+            </View>
+          </ScrollView>
         </SafeAreaView>
     )
   }

@@ -31,11 +31,11 @@ export default class Note extends Component {
   };
 
   openModal = () => {
-    this.setState({modalVisible: true});
+    this.setState({ modalVisible: true });
   };
 
   closeModal = () => {
-    this.setState({modalVisible: false});
+    this.setState({ modalVisible: false });
   };
 
   addNote = () => {
@@ -54,10 +54,10 @@ export default class Note extends Component {
       );
     }
 
-    this.setState({modalVisible: false});
+    this.setState({ modalVisible: false });
   };
 
-  deleteNote= i => {
+  deleteNote = i => {
     this.setState(
       prevState => {
         let notes = prevState.notes.slice();
@@ -94,41 +94,41 @@ export default class Note extends Component {
           animationType="slide"
           transparent={false}
           visible={this.state.modalVisible}
-          onRequestClose={() => { this.closeModal } }
+          onRequestClose={() => { this.closeModal }}
         >
-          <View style={{marginTop: 22}}>
+          <View style={{ padding: 20 }}>
 
-              <TextInput
-                style={styles.textInput}
-                onChangeText={this.changeNoteHandler}
-                onSubmitEditing={this.addNote}
-                value={this.state.note}
-                placeholder="Add Notes"
-                returnKeyType="done"
-                returnKeyLabel="done"
-              />
+            <TextInput
+              style={styles.textInput}
+              onChangeText={this.changeNoteHandler}
+              onSubmitEditing={this.addNote}
+              value={this.state.note}
+              placeholder="Add Notes"
+              returnKeyType="done"
+              returnKeyLabel="done"
+            />
           </View>
-          
+
           <Button
             style={styles.cancelButton}
             title="Cancel"
-            onPress={ this.closeModal }
+            onPress={this.closeModal}
           />
 
         </Modal>
 
         <FlatList
           data={this.state.notes}
-          renderItem={({ item, index }) => 
-              <View>
-                <Card
-                  title={item.note} >
-                
-                  <Text style={{marginBottom: 10}}>
-                    The idea with React Native Elements is more about component structure than actual design.
-                  </Text>
-                
-                </Card>
+          renderItem={({ item, index }) =>
+            <View>
+              <Card
+                title={item.note} >
+
+                <Text style={{ marginBottom: 10 }}>
+                  The idea with React Native Elements is more about component structure than actual design.
+                </Text>
+
+              </Card>
             </View>
           }
         />
@@ -138,7 +138,7 @@ export default class Note extends Component {
           onPress={this.openModal}
           style={styles.TouchableOpacityStyle}>
           <Image
-            source={ require('../assets/plus_icon.png') }
+            source={require('../../assets/plus_icon.png')}
             style={styles.FloatingButtonStyle}
           />
         </TouchableOpacity>
@@ -169,15 +169,9 @@ let Notes = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     padding: viewPadding,
-    paddingTop: 20
   },
-  list: {
-    width: "100%"
-  },
-  cancelButton:{
+  cancelButton: {
     marginLeft: 10,
     marginRight: 10
   },
@@ -197,7 +191,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     right: 30,
     bottom: 30,
-    elevation: 8 
+    elevation: 8
   },
   FloatingButtonStyle: {
     resizeMode: 'contain',

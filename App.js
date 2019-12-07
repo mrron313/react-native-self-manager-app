@@ -1,8 +1,6 @@
 import React from 'react';
-import { View } from 'react-native';
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
-import AppNavigation from './components/AppNavigation'
-import AppBarComponent from './components/AppBarComponent'
+import MainApp from './components/MainApp'
 
 const theme = {
   ...DefaultTheme,
@@ -17,8 +15,7 @@ const theme = {
 export default function App() {
   return (
     <PaperProvider theme={theme}>
-      <AppBarComponent />
-      <AppNavigation />
+      <MainApp />
     </PaperProvider>
   );
 }

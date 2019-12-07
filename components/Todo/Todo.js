@@ -17,7 +17,7 @@ import {
 import { Icon } from 'react-native-elements'
 import FormData from 'FormData'
 import DatePicker from 'react-native-datepicker'
-import SITE_URL from '../config/site'
+import SITE_URL from '../../config/site'
 
 const isAndroid = Platform.OS == "android"
 const viewPadding = 10
@@ -35,11 +35,11 @@ export default class Todo extends Component {
   };
 
   openModal = () => {
-    this.setState({modalVisible: true});
+    this.setState({ modalVisible: true });
   };
 
   closeModal = () => {
-    this.setState({modalVisible: false});
+    this.setState({ modalVisible: false });
   };
 
   addTask = () => {
@@ -54,24 +54,24 @@ export default class Todo extends Component {
       fetch(SITE_URL + '/api/todos', {
         method: 'POST',
         headers: {
-            Accept: 'application/json',
-            'Content-Type': 'multipart/form-data',
+          Accept: 'application/json',
+          'Content-Type': 'multipart/form-data',
         },
-        body:data,
+        body: data,
       })
-      .then((response) => response.json())
-      .then((responseJson) => {
-          console.log('response object:',responseJson)
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+        .then((response) => response.json())
+        .then((responseJson) => {
+          console.log('response object:', responseJson)
+        })
+        .catch((error) => {
+          console.error(error);
+        });
 
       this.fetchTodos()
 
     }
 
-    this.setState({modalVisible: false});
+    this.setState({ modalVisible: false });
   };
 
   deleteTask = (i, itemId) => {
@@ -84,11 +84,11 @@ export default class Todo extends Component {
         console.log("item id", itemId)
 
         fetch(SITE_URL + '/api/todos/' + itemId, {
-            method: 'delete'
-          }).then(response =>
-            response.json().then(json => {
-              console.log(json)
-            })
+          method: 'delete'
+        }).then(response =>
+          response.json().then(json => {
+            console.log(json)
+          })
         );
 
         return { tasks: tasks };
@@ -98,7 +98,7 @@ export default class Todo extends Component {
   };
 
   fetchTodos = () => {
-    fetch(SITE_URL + '/api/get-undone-todos/2019-12-6', {
+    fetch(SITE_URL + '/api/get-undone-todos/2019-12-07', {
       method: 'GET',
     })
       .then(response => response.json())
@@ -122,7 +122,7 @@ export default class Todo extends Component {
       isAndroid ? "keyboardDidHide" : "keyboardWillHide",
       () => this.setState({ viewPadding: viewPadding })
     );
-    
+
     this.fetchTodos()
     Tasks.all(tasks => this.setState({ tasks: tasks || [] }));
   }
@@ -136,9 +136,9 @@ export default class Todo extends Component {
           animationType="slide"
           transparent={false}
           visible={this.state.modalVisible}
-          onRequestClose={() => { this.closeModal } }
+          onRequestClose={() => { this.closeModal }}
         >
-          <View style={{padding: 20}}>
+          <View style={{ padding: 20 }}>
 
             <TextInput
               style={styles.textInput}
@@ -150,9 +150,9 @@ export default class Todo extends Component {
             />
 
             <DatePicker
-              style={{width: 200, marginBottom: 10}}
-              date={this.state.date} 
-              mode="date" 
+              style={{ width: 200, marginBottom: 10 }}
+              date={this.state.date}
+              mode="date"
               placeholder="Select Day"
               format="YYYY-MM-DD"
               minDate="2019-12-06"
@@ -176,7 +176,7 @@ export default class Todo extends Component {
                   width: "100%"
                 }
               }}
-              onDateChange={(date) => {this.setState({date: date})}}
+              onDateChange={(date) => { this.setState({ date: date }) }}
             />
 
             <View style={styles.btnGroup}>
@@ -184,21 +184,20 @@ export default class Todo extends Component {
                 <Button title="Add" onPress={this.addTask} />
               </View>
               <View style={styles.buttonContainer}>
-                <Button title="Cancel" onPress={this.closeModal}/>
+                <Button title="Cancel" color="#FA8072" onPress={this.closeModal} />
               </View>
             </View>
-          
+
           </View>
         </Modal>
 
         <FlatList
-          style={styles.list}
           data={this.state.tasks}
           renderItem={({ item, index }) =>
 
-          <View style={styles.taskRow}>
+            <View style={styles.taskRow}>
               <View
-                style={styles.row_cell_timeplace}
+                style={styles.checkBox}
               >
                 <Icon
                   type="font-awsome"
@@ -207,12 +206,12 @@ export default class Todo extends Component {
                   onPress={() => this.deleteTask(index, item.id)} />
               </View>
 
-              <View style={styles.row_cell_temp}>
-                <Text style={styles.row_time}>{item.date}</Text>
-                <Text style={styles.row_place}>{item.task}</Text>
+              <View style={styles.taskDetails}>
+                <Text style={styles.taskDate}>{item.date}</Text>
+                <Text style={styles.taskName}>{item.task}</Text>
               </View>
 
-          </View>
+            </View>
           }
         />
 
@@ -221,7 +220,7 @@ export default class Todo extends Component {
           onPress={this.openModal}
           style={styles.TouchableOpacityStyle}>
           <Image
-            source={ require('../assets/plus_icon.png') }
+            source={require('../../assets/plus_icon.png')}
             style={styles.FloatingButtonStyle}
           />
         </TouchableOpacity>
@@ -253,17 +252,16 @@ let Tasks = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
     padding: viewPadding,
-    paddingTop: 20,
-    padding: 10
+    padding: 25
   },
   btnGroup: {
-    flex: 1,
     flexDirection: 'row'
   },
   buttonContainer: {
     flex: 1,
+    marginLeft: 10,
+    marginRight: 10
   },
   textInput: {
     height: 40,
@@ -281,7 +279,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     right: 30,
     bottom: 30,
-    elevation: 8 
+    elevation: 8
   },
   FloatingButtonStyle: {
     resizeMode: 'contain',
@@ -293,9 +291,9 @@ const styles = StyleSheet.create({
     borderRadius: 2,
     borderColor: '#DF76A9',
     flex: 1,
-    flexDirection: 'row',  
-    justifyContent: 'space-between', 
-    alignItems: 'center', 
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     paddingTop: 10,
     paddingBottom: 10,
     paddingLeft: 12,
@@ -303,7 +301,7 @@ const styles = StyleSheet.create({
     marginTop: 0,
     marginBottom: 10,
   },
-  row_cell_timeplace: {
+  checkBox: {
     flex: 0,
     flexDirection: 'column',
     borderColor: '#263238',
@@ -312,20 +310,21 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     padding: 5
   },
-  row_cell_temp: {
+  taskDetails: {
     color: '#263238',
     paddingLeft: 16,
     flex: 0,
   },
-  row_time: {
+  taskDate: {
     color: '#263238',
     textAlignVertical: 'bottom',
     includeFontPadding: false,
     flex: 0,
     fontSize: 12,
     color: '#DF76A9',
+    textAlign: 'right'
   },
-  row_place: {
+  taskName: {
     color: '#263238',
     textAlignVertical: 'top',
     includeFontPadding: false,

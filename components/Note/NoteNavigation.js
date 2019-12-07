@@ -5,7 +5,7 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { Icon } from 'react-native-elements'
 import Todo from './Todo'
 import Note from './Note'
-import Holiday from './Holiday'
+import Holiday from '../Holiday/Holiday'
 
 class TodoScreen extends React.Component {
   render() {
